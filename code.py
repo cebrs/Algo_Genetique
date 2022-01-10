@@ -23,7 +23,7 @@ class individu:
         characters+=")"
         return characters #retourner les valeurs de a,b,c
     
-    def calcul(self, i): #à vérifier / calcule la température d'un individu à l'instant i
+    def calcul(self, i): #calcule la température d'un individu à l'instant i
         t = 0
         a = self.val[0]
         b = self.val[1]
@@ -39,12 +39,9 @@ class individu:
             calcultemp[i] = self.calcul(i)
         return calcultemp
     
-    def fitness(self): #à tester
+    def fitness(self): 
         """évaluer l'individu c'est connaitre sa différence par rapport 
         à la température mesurée de l'étoile"""
-        #problème = plusieurs tests selon plusieurs températures
-        #faire une liste de différences de température ?
-        #autre ?
         time_temp = temperature_sample()
         self.difftemp = 0
         listdiff = []
@@ -67,7 +64,7 @@ def create_rand_pop(count):
 
 def temperature_sample():
     time_temperature = dict() #à un temps on associe une temperature
-    file = open('temperature_sample.csv','r')#possibilité de passer le fichier en paramètres
+    file = open('temperature_sample.csv','r') #possibilité de passer le fichier en paramètres
     x= file.readlines()
     del x[0]
     for i in x:
@@ -75,13 +72,6 @@ def temperature_sample():
        time_temperature[float(y[0])] = float(y[1])
     file.closed
     return time_temperature
-
-#def calibrate():
-#Prendre le triplet de valeur donné
-#val=[a,b,c]
-#indiv = individu(val))
-#print(indiv.difftemp())
-
 
 def evaluate(pop):
     return sorted(pop,key=lambda individu : individu.difftemp) 
@@ -135,6 +125,8 @@ def algoloopSimple():
             newalea=create_rand_pop(5)#j'ajoute 5 nouveaux individus aléatoires
             pop=select[:]+croises[:]+mutes[:]+newalea[:] #nouvelle population
     print("solution :", evaluation[0])
+    
+    
 # %% zone du main
 if __name__ == '__main__':
     algoloopSimple()
