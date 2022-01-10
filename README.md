@@ -1,6 +1,8 @@
 # Algo_Genetique
 Il s'agit d'un projet école, réalisé en BAC+3, qui permet de réaliser une approximation de fonction dite de Weierstrass par algorithme génétique.
+
 Extrait de l'énoncé : 
+
 <img width="323" alt="Enonce" src="https://user-images.githubusercontent.com/94990700/148781596-16cff39b-f527-47ad-bee3-be05a39987d2.png">
 
 Environnement de travail : Spyder
